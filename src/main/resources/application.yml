@@ -1,0 +1,9 @@
+spring:
+  profiles:
+    active: dev   # abhi dev profile active rakhenge
+
+  application:
+    name: enterpriseflow
+
+server:
+  port: 8080

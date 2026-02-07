@@ -1,0 +1,27 @@
+<configuration>
+
+    <!-- yaha log file ka path define kar rahe hain -->
+    <property name="LOG_PATH" value="logs"/>
+
+    <!-- console appender -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- log format define kar rahe hain -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %level - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- file appender -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/enterpriseflow.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %level - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</configuration>

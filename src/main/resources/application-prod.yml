@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/enterpriseflow_prod
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: validate   # production me table auto change nahi hoga
+    show-sql: false

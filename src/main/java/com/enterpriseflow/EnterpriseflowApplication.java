@@ -8,6 +8,6 @@ public class EnterpriseflowApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(EnterpriseflowApplication.class, args);
+	
 	}
-
 }
