@@ -2,6 +2,11 @@ package com.enterpriseflow.response;
 
 import java.time.LocalDateTime;
 
+import lombok.Builder;
+import lombok.Data;
+
+@Data 
+@Builder
 public class ErrorResponse {
 	
 	// error code internal tracking ke liye.
