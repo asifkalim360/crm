@@ -7,3 +7,6 @@ spring:
     hibernate:
       ddl-auto: validate   # production me table auto change nahi hoga
     show-sql: false
+logging:
+  level:
+    root: ERROR

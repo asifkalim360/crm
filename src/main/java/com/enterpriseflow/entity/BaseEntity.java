@@ -6,7 +6,9 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -36,12 +38,15 @@ public abstract class BaseEntity {
     // jab record update hoga tab auto date update hogi
     private LocalDateTime updatedAt;
 
-//    @Column(name="created_by")
-//    //Yahan pe LoggedIN user ka ID ya Email store karenge.
-//    private String createBy;
-//
-//    @Column(name="updated_by")
-//    private String updatedBy;
+    @CreatedBy
+    @Column(name="created_by")
+    //Yahan pe LoggedIN user ka ID ya Email store karenge. // kaunsa user ne record create kiya.
+    private String createBy;
+
+    @LastModifiedBy
+    // kaunsa user ne record update kiya
+    @Column(name="updated_by")
+    private String updatedBy;
 
     @Column(name="is_deleted")
     // Soft deleted ke liye flag.
