@@ -1,24 +1,39 @@
 <configuration>
 
-    <!-- yaha log file ka path define kar rahe hain -->
+    <!-- Log file path -->
     <property name="LOG_PATH" value="logs"/>
 
-    <!-- console appender -->
+    <!-- Console Appender -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <!-- log format define kar rahe hain -->
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %level - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %level - %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
-    <!-- file appender -->
+    <!-- Rolling File Appender -->
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        
+        <!-- Current log file -->
         <file>${LOG_PATH}/enterpriseflow.log</file>
+
+        <!-- Rolling policy (MANDATORY) -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            
+            <!-- Daily file rotation -->
+            <fileNamePattern>${LOG_PATH}/enterpriseflow.%d{yyyy-MM-dd}.log</fileNamePattern>
+            
+            <!-- Keep logs for 30 days -->
+            <maxHistory>30</maxHistory>
+
+        </rollingPolicy>
+
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %level - %msg%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} - %level - %logger{36} - %msg%n</pattern>
         </encoder>
+
     </appender>
 
+    <!-- Root Logger -->
     <root level="INFO">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>

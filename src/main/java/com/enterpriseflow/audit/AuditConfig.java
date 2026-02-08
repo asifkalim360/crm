@@ -7,4 +7,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableJpaAuditing
 // ye annotation JPA auditing ko activate karta hai
 public class AuditConfig {
+	
+	
+	
 }
+

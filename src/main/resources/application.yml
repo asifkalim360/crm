@@ -1,7 +1,6 @@
 spring:
   profiles:
-    active: dev   # abhi dev profile active rakhenge
-
+    active: dev   # abhi dev profile active rakhenge, dev matlab default dev config chalega, baad me production me sirf profile change karna hota hai
   application:
     name: enterpriseflow
 
