@@ -11,7 +11,8 @@ import lombok.Setter;
 @Getter 
 @Setter
 @Entity 
-@Table
+@Table(name="roles")
+// role table user ke access control ke liye use hoga.
 public class Role extends BaseEntity {
 	
 	@Column(unique=true, nullable=false)
