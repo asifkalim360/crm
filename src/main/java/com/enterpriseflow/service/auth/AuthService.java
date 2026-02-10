@@ -6,6 +6,6 @@ import com.enterpriseflow.response.ApiResponse;
 public interface AuthService {
 	
 	// user registration method.
-	ApiResponse<?> register(RegisterRequestDto request);
+	ApiResponse<?> registerUser(RegisterRequestDto registrationRequest);
 	
 }

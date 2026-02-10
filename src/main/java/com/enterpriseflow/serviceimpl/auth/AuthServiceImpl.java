@@ -39,10 +39,10 @@ public class AuthServiceImpl implements AuthService {
 //	}
 		
 	@Override
-	public ApiResponse<?> register(RegisterRequestDto request) {
+	public ApiResponse<?> registerUser(RegisterRequestDto registrationRequest) {
 		
 		// check kar rahe hain email already exist to nahi.
-		if(userRepository.existsByEmail(request.getEmail()))
+		if(userRepository.existsByEmail(registrationRequest.getEmail()))
 		{
 			throw new BusinessException(ErrorMessage.USER_ALREADY_EXISTS);
 		}
@@ -52,11 +52,13 @@ public class AuthServiceImpl implements AuthService {
 				.orElseThrow(()-> new BusinessException("Default role not found"));
 		
 		User user = new User();
-		user.setFullName(request.getFullName());
-		user.setEmail(request.getEmail());
+		user.setFullName(registrationRequest.getFullName());
+		user.setEmail(registrationRequest.getEmail());
 		
-		// password ko yahan pe hash kar rahe hain.
-		user.setPassword(request.getPassword());
+		// 	password ko yahan pe hash kar rahe hain.  // 🔥 Yaha encode karna zaruri hai
+		//	user.setPassword(registrationRequest.getPassword());
+	    user.setPassword(passwordEncoder.encode(registrationRequest.getPassword()));
+
 		user.setRoles(Collections.singleton(userRole)); 
 		
 		userRepository.save(user); 

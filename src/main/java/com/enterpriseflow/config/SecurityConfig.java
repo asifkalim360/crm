@@ -13,10 +13,9 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfig {
 	
 	@Bean
-	public PasswordEncoder passwordEncoder()
-	{
+	public PasswordEncoder passwordEncoder() {
 		// Bcrypt industry standard hasing algorithm hai.
-		return new BCryptPasswordEncoder();
+	    return new BCryptPasswordEncoder();
 	}
 	
 	@Bean
