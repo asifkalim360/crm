@@ -1,5 +1,6 @@
 package com.enterpriseflow.controller.auth;
 
+import com.enterpriseflow.constant.AppConstants;
 import com.enterpriseflow.constant.SuccessMessage;
 import com.enterpriseflow.dto.auth.RegisterRequestDto;
 import com.enterpriseflow.response.ApiResponse;
@@ -24,9 +25,7 @@ public class AuthController {
     {
     	authService.registerUser(registrationRequest);
     	return ResponseEntity.status(HttpStatus.CREATED)
-    			.body(ApiResponse.success(SuccessMessage.USER_REGISTERED_SUCCESS, null));
+    			.body(ApiResponse.success(AppConstants.USER_REGISTER_SUCCESS,null));
     }
-    
-    
     
 }
