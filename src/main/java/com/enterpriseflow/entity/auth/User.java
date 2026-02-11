@@ -34,11 +34,11 @@ public class User extends BaseEntity {
 	// encrypted password store hoga
 	private String password; 
 	
-	@Column
+	@Column(nullable = false)
 	// email verify hone tak false rahega.
-	private boolean isActive; 
+	private boolean isActive = false;	// register pe false rahega.
 	
-	@Column
+	@Column(nullable = false)
 	// agar account lock ho jaye to false ho jayega.  
 	private boolean isAccountNonLocked = true; 
 	
