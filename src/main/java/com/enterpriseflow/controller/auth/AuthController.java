@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
-@RequiredArgsConstructor
+@RequiredArgsConstructor   // es annotation ka use karne se constructor nane ki jrurt nahi hai.
 // authentication related endpoints yaha rahenge
 public class AuthController {
 
@@ -24,8 +24,14 @@ public class AuthController {
     public ResponseEntity<ApiResponse<?>> registerUser( @Valid @RequestBody RegisterRequestDto registrationRequest)
     {
     	authService.registerUser(registrationRequest);
+//    	return ResponseEntity.status(HttpStatus.CREATED)
+//    			.body(ApiResponse.success("User registered successfully, Please verify your email.", null, 0));
+    	
     	return ResponseEntity.status(HttpStatus.CREATED)
-    			.body(ApiResponse.success(AppConstants.USER_REGISTER_SUCCESS,null));
+    	        .body(ApiResponse.success(
+    	                "User registered successfully, Please verify your email.",
+    	                HttpStatus.CREATED.value()
+    	        ));
     }
     
 }
